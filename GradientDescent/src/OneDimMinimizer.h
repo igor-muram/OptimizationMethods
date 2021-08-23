@@ -51,7 +51,8 @@ int golden_ratio(const func& f, vec2& a, vec2& b, const vec2& dir, double eps, d
 	vec2 result = (x1 + x2) / 2;
 
 	vec2 dist = result - saved;
-	lambda = dist.x / dir.x;
+
+	lambda = abs(dir.y) < 1.0e-6 ? dist.x / dir.x : dist.y / dir.y;
 
 	return k;
 }
